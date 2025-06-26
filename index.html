@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elias Melquiades BJJ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button id="themeToggle" class="theme-toggle">toggle theme</button>
+
+    <header>
+         <div class="belt">
+    <h1>Elias Melquiades Brazilian Jiu-Jitsu</h1>
+    <div class="red-tip">
+      <div class="stripe"></div>
+      <div class="stripe"></div>
+        </div>
+        </div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#classes">Classes</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <button id="openBookingModal">book class</button>
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-booking">&times;</span>
+            <h2>Book a Class</h2>
+            <form id="booking-form"> 
+                <label for="booking-name">Name:</label>
+                <input type="text" id="booking-name" name="name" required>
+                <label for="booking-email">Email:</label>
+                <input type="email" id="booking-email" name="email" required>
+                <label for="booking-date">Preferred Date:</label>
+                <input type="date" id="booking-date" name="date" required>
+                <button type="submit">Book Now</button>
+            </form>
+            <p id="success-message" style="display: none;">Class successfully booked!</p>
+        </div>
+    </div>
+
+    <!-- button modal --> 
+    <button id="openSubscribeModal">subscribe</button>
+    <div id="subscribeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-subscribe">&times;</span>
+            <h2>Subscribe to Jiu-Jitsu classes</h2>
+            <form id="subscription-form"> 
+                <label for="subscribe-name">Name:</label>
+                <input type="text" id="subscribe-name" name="name" required>
+                <label for="subscribe-email">Email:</label>
+                <input type="email" id="subscribe-email" name="email" required>
+                <label for="subscribe-message">Message:</label>
+                <textarea id="subscribe-message" name="message" rows="4" required></textarea>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <section id="about">
+        <h2>About me</h2>
+        <p>Welcome to Elias Melquiades Brazilian Jiu-Jitsu, where we train champions on and off the mat.</p>
+    </section>
+    <section id="classes">
+        <h2>Classes</h2>
+        <p>We offer classes for all levels, from beginners to advanced practitioners.</p>
+    </section>
+    <section id="schedule">
+        <h2>Schedule</h2>
+        <p>Check our class schedule to find a time that works for you.</p>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Message me to schedule your first class:</p>
+        <button onclick="window.open('https://wa.me/310616798214', '_blank')">Contact via WhatsApp</button>
+    </section>
+    <footer>
+        <p>&copy; 2025 Elias Melquiades. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+     <script src="script.js"></script>
+</body>
+</html>
