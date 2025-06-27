@@ -6,11 +6,6 @@
 // References to DOM elements
 
 const toggleButton = document.getElementById("themeToggle");
-/*const modal = document.getElementById("modal");
-const openModalButton = document.getElementById("openModal");
-const closeModalButton = document.querySelector(".close");
-const form = document.getElementById("subscription-form");
-const successMessage = document.getElementById("success-message");*/
 
 // Toggle dark mode and add animation to the button
 toggleButton.addEventListener("click", () => {
@@ -103,3 +98,77 @@ subscribeForm.addEventListener("submit", function (e) {
         console.error('Failed to send email:', error);
         });
     });
+// FAQ accordion functionality
+const faqs = [
+  {
+    question: "How can I schedule a class?",
+    answer: "You can schedule through our contact form or via WhatsApp."
+  },
+  {
+    question: "Do I need experience to start?",
+    answer: "No! We welcome students of all levels, including beginners."
+  },
+  {
+    question: "What are the class times?",
+    answer: "We have classes in the morning, afternoon, and evening. Check our schedule for details."
+  },
+  {
+  question: "What should I wear to the first class?",
+  answer: "If you don’t have a gi (kimono) yet, come with comfortable sportswear. We can lend you one for your trial."
+},
+{
+  question: "Can kids join the classes?",
+  answer: "Yes! We have specific classes for children starting from age 4."
+},
+{
+  question: "Do you offer trial classes?",
+  answer: "Yes, we offer a free trial class for new students. Come and experience it!"
+},
+{
+  question: "Can I train even if I work shifts?",
+  answer: "Absolutely. Our flexible schedule allows you to train in the morning, afternoon or evening."
+},
+{
+  question: "Do you participate in competitions?",
+  answer: "Yes, we support and prepare students who want to compete in local and national tournaments."
+}
+];
+
+let currentIndex = 0;
+
+const questionEl = document.getElementById("faq-question");
+const answerEl = document.getElementById("faq-answer");
+
+function showFAQ(index) {
+  questionEl.textContent = faqs[index].question;
+  answerEl.textContent = faqs[index].answer;
+}
+
+// Buttons
+document.getElementById("prev-faq").addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + faqs.length) % faqs.length;
+  showFAQ(currentIndex);
+});
+
+document.getElementById("next-faq").addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % faqs.length;
+  showFAQ(currentIndex);
+});
+
+// Show first FAQ on page load
+showFAQ(currentIndex);
+
+//cookie consent functionality
+const cookieBanner = document.getElementById("cookie-banner");
+const acceptCookies = document.getElementById("accept-cookies");
+
+// Show cookie banner if not accepted
+if (!localStorage.getItem("cookiesAccepted")) {
+  cookieBanner.style.display = "block";
+}
+
+// Accept cookies
+acceptCookies.addEventListener("click", () => {
+  localStorage.setItem("cookiesAccepted", "true");
+  cookieBanner.style.display = "none";
+});
